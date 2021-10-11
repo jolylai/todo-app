@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  client:
+    build: ./packages/client
+    container_name: 'docker-todo-client'
+    ports:
+      - 80:80
+     depends_on:
+      - server
+    restart: always
+  server:
+    build: ./packages/server
+    container_name: 'docker-todo-server'
+    ports:
+      - 8888:8888
+    restart: always
+#   mysql:
+#     image: mysql:5.7
+#     volumes:
+#       - todo-app:/var/lib/mysql
+#      environment:
+#        MYSQL_ROOT_PASSWORD: 12345678
+#        MYSQL_DATABASE: todos
+# volumes:
+#   todo-app:
+network:
+  todo-app:
