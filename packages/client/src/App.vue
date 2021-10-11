@@ -8,6 +8,7 @@
           :disabled="!todo.length"
           :loading="loading.create"
           @click="onAdd"
+          @keydown.enter="onAdd"
         >
           Add
         </n-button>
